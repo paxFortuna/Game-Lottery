@@ -17,7 +17,6 @@ class _LayoutState extends State<Layout> {
 
   @override
   void initState() {
-    // TODO: implement initState
     lottoTotalResult();
     super.initState();
   }
@@ -28,7 +27,7 @@ class _LayoutState extends State<Layout> {
 
     var _toDay = DateTime.now();
     int difference =
-    int.parse(_toDay.difference(DateTime.parse(date)).inDays.toString());
+        int.parse(_toDay.difference(DateTime.parse(date)).inDays.toString());
 
     _lottoDrwNo = _lottoDrwNo + (difference ~/ 7);
 
@@ -55,85 +54,84 @@ class _LayoutState extends State<Layout> {
       return Container();
     } else {
       return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          '${data['drwNo']} 회차',
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => super.widget),
-              );
-            },
-            icon: const Icon(Icons.refresh),
-          )
-        ],
-      ),
-      body: ListView(
-      scrollDirection: Axis.vertical,
-        children: [
-          Center(
-            child: WeeNumkWidget(
-              data: data,
-            ),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            '${data['drwNo']} 회차',
           ),
-          // MainButtonWidget(),
-          const SizedBox(height: 7),
-          // Container(
-          //   height: 60,
-          //   child: AdmobBanner(
-          //     adUnitId: adBannerUnitId,
-          //     adSize: AdmobBannerSize.BANNER,
-          //   ),
-          // ),
-        ],
-      ),
-
-      bottomNavigationBar: BottomAppBar(
-        elevation: 1,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 7,
-        clipBehavior: Clip.antiAlias,
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          unselectedItemColor: Colors.grey[400],
-          selectedItemColor: Colors.blueGrey[800],
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          // onTap: onSelectItem,
-          currentIndex: 0,
-          elevation: 2,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.font_download),
-              label: '폰트',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.brush),
-              label: '폰트색상',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.camera),
-              label: '앨범',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                  CupertinoIcons.rectangle_fill_on_rectangle_angled_fill),
-              label: '백그라운드색상',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.save_alt),
-              label: '저장',
-            ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => super.widget),
+                );
+              },
+              icon: const Icon(Icons.refresh),
+            )
           ],
         ),
-      ),
-    );
+        body: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            Center(
+              child: WeeNumkWidget(
+                data: data,
+              ),
+            ),
+            // MainButtonWidget(),
+            const SizedBox(height: 7),
+            // Container(
+            //   height: 60,
+            //   child: AdmobBanner(
+            //     adUnitId: adBannerUnitId,
+            //     adSize: AdmobBannerSize.BANNER,
+            //   ),
+            // ),
+          ],
+        ),
+        bottomNavigationBar: BottomAppBar(
+          elevation: 1,
+          shape: const CircularNotchedRectangle(),
+          notchMargin: 7,
+          clipBehavior: Clip.antiAlias,
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.white,
+            unselectedItemColor: Colors.grey[400],
+            selectedItemColor: Colors.blueGrey[800],
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            // onTap: onSelectItem,
+            currentIndex: 0,
+            elevation: 2,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.font_download),
+                label: '폰트',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.brush),
+                label: '폰트색상',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.camera),
+                label: '앨범',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                    CupertinoIcons.rectangle_fill_on_rectangle_angled_fill),
+                label: '백그라운드색상',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.save_alt),
+                label: '저장',
+              ),
+            ],
+          ),
+        ),
+      );
     }
   }
 }
